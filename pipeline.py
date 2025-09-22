@@ -4,7 +4,7 @@ import requests
 from weaviate.classes.init import Auth
 from weaviate.classes.query import Rerank
 from transformers import AutoTokenizer, pipeline
-
+import torch
 
 # 1. الاتصال بقاعدة Weaviate
 def connect_to_db():
@@ -139,3 +139,4 @@ def IntelligentRAGSystem(query, client, classifier):
     else:
         docs_law_llm = search_for_laws(query, client)
         return llm_response_laws(query, docs_law_llm)
+
